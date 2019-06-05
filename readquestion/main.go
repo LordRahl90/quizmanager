@@ -12,7 +12,7 @@ import (
 
 func main() {
 
-	filename := flag.String("questions", "questions.csv", "Please provide the questions file")
+	filename := flag.String("q", "questions.csv", "Please provide the questions file")
 	flag.Parse()
 
 	csvFile, err := os.Open(*filename)
