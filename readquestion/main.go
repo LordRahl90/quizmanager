@@ -24,6 +24,7 @@ func main() {
 	}
 
 	l := len(records)
+	pass := 0
 
 	r := bufio.NewReader(os.Stdin)
 
@@ -35,6 +36,7 @@ func main() {
 		resp = strings.Trim(resp, "\n")
 
 		if resp == ans {
+			pass++
 			fmt.Printf("Very Correct!!!\n")
 		} else {
 			fmt.Printf("Sadly, You are wrong. The right answer is: %s\n", ans)
@@ -42,4 +44,9 @@ func main() {
 
 		// fmt.Printf("Your Response is: %s, While the answer is: %s\n", strings.Trim(resp, "\n"), ans)
 	}
+
+	fail := l - pass
+	percent := float64(pass) / float64(l) * 100.0
+
+	fmt.Printf("Well Done, You passed %d and failed: %d, Total Pass Percentage is %.1f% \n", pass, fail, percent)
 }
