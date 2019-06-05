@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -10,7 +11,11 @@ import (
 )
 
 func main() {
-	csvFile, err := os.Open("questions.csv")
+
+	filename := flag.String("questions", "questions.csv", "Please provide the questions file")
+	flag.Parse()
+
+	csvFile, err := os.Open(*filename)
 	if err != nil {
 		log.Fatal(err)
 	}
